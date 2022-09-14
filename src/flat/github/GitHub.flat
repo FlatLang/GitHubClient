@@ -1,0 +1,22 @@
+package flat/github
+
+import flat/github/models/Repo
+
+import flatlang/http/Http
+import flatlang/json/JsonDeserializer
+import flatlang/datastruct/HashMap
+
+class {
+  let static String API_ROOT = "https://api.github.com"
+
+  public static async getOrganizationRepos(
+    String organization
+  ) -> Repo[] {
+    let url = "#{API_ROOT}/orgs/#{organization}/repos?per_page=100"
+
+    let response = Http.get(url)
+    let Array<HashMap<String, Object>> data = JsonDeserializer().parseArray(response.data)
+
+    return data.map({ Repo(_) })
+  }
+}

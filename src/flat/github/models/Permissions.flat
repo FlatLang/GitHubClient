@@ -1,0 +1,25 @@
+package flat/github/models
+
+import flatlang/datastruct/HashMap
+
+class {
+  public construct(
+    HashMap<String, Object> map
+  ) {
+    this(
+      admin: (Bool)map["admin"],
+      maintain: (Bool)map["maintain"],
+      push: (Bool)map["push"],
+      triage: (Bool)map["triage"],
+      pull: (Bool)map["pull"]
+    )
+  }
+
+  public construct(
+    visible Bool admin,
+    visible Bool maintain,
+    visible Bool push,
+    visible Bool triage,
+    visible Bool pull
+  ) {}
+}
