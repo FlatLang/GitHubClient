@@ -1,6 +1,6 @@
 package flat/github/models
 
-import flatlang/datastruct/HashMap
+import flat/datastruct/HashMap
 
 class {
   public construct(

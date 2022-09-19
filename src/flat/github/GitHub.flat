@@ -2,9 +2,9 @@ package flat/github
 
 import flat/github/models/Repo
 
-import flatlang/http/Http
-import flatlang/json/JsonDeserializer
-import flatlang/datastruct/HashMap
+import flat/http/Http
+import flat/json/JsonDeserializer
+import flat/datastruct/HashMap
 
 class {
   let static String API_ROOT = "https://api.github.com"
