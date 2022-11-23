@@ -12,11 +12,27 @@ class {
   public static async getOrganizationRepos(
     String organization
   ) -> Repo[] {
-    let url = "#{API_ROOT}/orgs/#{organization}/repos?per_page=100"
+    var Int page = 1
+    let perPage = 100
 
-    let response = Http.get(url)
-    let Array<HashMap<String, Object>> data = JsonDeserializer().parseArray(response.data)
+    let allRepos = Repo[]
 
-    return data.map({ Repo(_) })
+    while (true) {
+      let url = "#{API_ROOT}/orgs/#{organization}/repos?page=#{page++}&per_page=#{perPage}"
+      let headers = HashMap()
+        :add("Accept", "application/json")
+        :add("Content-Type", "text/plain")
+        :add("User-Agent", "flat-github-client")
+
+      let response = Http.get(url, headers: headers)
+
+      let Array<HashMap<String, Object>> data = JsonDeserializer().parseArray(response.data)
+
+      allRepos.addAll(data.map({ Repo(_) }))
+
+      if (data.count < perPage) break
+    }
+
+    return allRepos
   }
 }
