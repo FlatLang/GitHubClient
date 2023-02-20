@@ -7,11 +7,11 @@ class {
     HashMap<String, Object> map
   ) {
     this(
-      admin: (Bool)map["admin"],
-      maintain: (Bool)map["maintain"],
-      push: (Bool)map["push"],
-      triage: (Bool)map["triage"],
-      pull: (Bool)map["pull"]
+      admin: ((Bool)map["admin"]).value,
+      maintain: ((Bool)map["maintain"]).value,
+      push: ((Bool)map["push"]).value,
+      triage: ((Bool)map["triage"]).value,
+      pull: ((Bool)map["pull"]).value
     )
   }
 

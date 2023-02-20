@@ -8,7 +8,7 @@ class {
   ) {
     this(
       login: (String)map["login"],
-      id: (Long)map["id"],
+      id: ((Long)map["id"]).value,
       nodeId: (String)map["node_id"],
       avatarUrl: (String)map["avatar_url"],
       gravatarId: (String)map["gravatar_id"],
@@ -24,7 +24,7 @@ class {
       eventsUrl: (String)map["events_url"],
       receivedEventsUrl: (String)map["received_events_url"],
       type: (String)map["type"],
-      siteAdmin: (Bool)map["site_admin"]
+      siteAdmin: ((Bool)map["site_admin"]).value
     )
   }
 
