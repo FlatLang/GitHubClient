@@ -54,4 +54,8 @@ class {
   public static async getOrganizationRepos(String organization, String token = null) -> Repo[] {
     return pagingRequest("#{API_ROOT}/orgs/#{organization}/repos", { Repo(_) }, token)
   }
+
+  public static async getRepositoryWorkflows(String organization, String repository, String token = null) -> Workflow[] {
+    return pagingRequest("#{API_ROOT}/repos/#{organization}/#{repository}/actions/workflows", { Workflow(_) }, token, "workflows")
+  }
 }

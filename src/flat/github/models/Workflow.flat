@@ -1,0 +1,35 @@
+package flat/github/models
+
+import flat/datastruct
+
+class {
+  public construct(
+    HashMap<String, Object> map
+  ) {
+    this(
+      id: ((Long)map["id"]).value,
+      nodeId: (String)map["node_id"],
+      name: (String)map["name"],
+      path: (String)map["path"],
+      state: (String)map["state"],
+      createdAt: (String)map["created_at"],
+      updatedAt: (String)map["updated_at"],
+      url: (String)map["url"],
+      htmlUrl: (String)map["html_url"],
+      badgeUrl: (String)map["badge_url"]
+    )
+  }
+
+  public construct(
+    visible Long id,
+    visible String nodeId,
+    visible String name,
+    visible String path,
+    visible String state,
+    visible String createdAt,
+    visible String updatedAt,
+    visible String url,
+    visible String htmlUrl,
+    visible String badgeUrl
+  ) {}
+}
