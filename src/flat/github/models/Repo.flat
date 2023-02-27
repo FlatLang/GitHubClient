@@ -85,7 +85,7 @@ class {
       openIssues: ((Int)map["open_issues"]).value,
       watchers: ((Int)map["watchers"]).value,
       defaultBranch: (String)map["default_branch"],
-      permissions: Permissions((HashMap)map["permissions"])
+      permissions: map.containsKey("permissions") ? Permissions((HashMap)map["permissions"]) : null
     )
   }
 
