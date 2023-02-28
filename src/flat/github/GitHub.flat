@@ -74,6 +74,7 @@ class {
     )
   }
 
+  // https://docs.github.com/en/rest/actions/workflows?apiVersion=2022-11-28#list-repository-workflows
   public static async getRepositoryWorkflows(String owner, String repository, String token = null) -> Workflow[] {
     return pagingRequest(
       "#{API_ROOT}/repos/#{owner}/#{repository}/actions/workflows",
@@ -83,6 +84,7 @@ class {
     )
   }
 
+  // https://docs.github.com/en/rest/actions/workflow-runs?apiVersion=2022-11-28#re-run-a-job-from-a-workflow-run
   public static async rerunRepositoryWorkflowJob(String owner, String repository, Long jobId, String token = null) {
     githubRequest(
       "#{API_ROOT}/repos/#{owner}/#{repository}/actions/jobs/#{jobId}/rerun",
@@ -93,6 +95,7 @@ class {
     )
   }
 
+  // https://docs.github.com/en/rest/actions/workflow-runs?apiVersion=2022-11-28#re-run-failed-jobs-from-a-workflow-run
   public static async rerunFailedRepositoryWorkflowRunJobs(String owner, String repository, Long runId, String token = null) {
     githubRequest(
       "#{API_ROOT}/repos/#{owner}/#{repository}/actions/runs/#{runId}/rerun-failed-jobs",
@@ -103,7 +106,8 @@ class {
     )
   }
 
-  public static async listWorkflowRuns(String owner, String repository, String status = null, String token = null) -> WorkflowRun[] {
+  // https://docs.github.com/en/rest/actions/workflow-runs?apiVersion=2022-11-28#list-workflow-runs-for-a-repository
+  public static async listWorkflowRunsForRepository(String owner, String repository, String status = null, String token = null) -> WorkflowRun[] {
     var params = ""
 
     if (status) params += "&status=#{status}"
@@ -116,7 +120,8 @@ class {
     )
   }
 
-  public static async listWorkflowRuns(String owner, String repository, Int page, Int perPage, String status = null, String token = null) -> WorkflowRun[] {
+  // https://docs.github.com/en/rest/actions/workflow-runs?apiVersion=2022-11-28#list-workflow-runs-for-a-repository
+  public static async listWorkflowRunsForRepository(String owner, String repository, Int page, Int perPage, String status = null, String token = null) -> WorkflowRun[] {
     var params = ""
 
     if (status) params += "&status=#{status}"
