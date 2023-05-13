@@ -40,6 +40,15 @@ class {
       data = (Array)parsed
     }
 
+    if (!data || !data.class.isOfType(Array.class)) {
+      throw Exception("|
+        Invalid data for request:
+          url: #url
+          method: #method
+          data: #data
+        |")
+    }
+
     return data.map(mapper)
   }
 
