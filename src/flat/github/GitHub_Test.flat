@@ -3,9 +3,9 @@ package flat/github
 import flat/github/GitHub
 
 testable class {
-  test `can create`() {
-    let value = GitHub()
+    test `can create`() {
+        let value = GitHub()
 
-    expect(value).toNotBe(null)
-  }
+        expect(value).toNotBe(null)
+    }
 }
