@@ -49,7 +49,7 @@ class {
         visible Bool siteAdmin
     ) {}
 
-    override public toJson() -> String {
+    override public toJson(Bool: format = false, String: tab = "\t") -> String {
         return "{\"login\":#{login.toJson()},\"id\":#{id.toJson()},\"node_id\":#{nodeId.toJson()},\"avatar_url\":#{avatarUrl.toJson()},\"gravatar_id\":#{gravatarId.toJson()},\"url\":#{url.toJson()},\"html_url\":#{htmlUrl.toJson()},\"followers_url\":#{followersUrl.toJson()},\"following_url\":#{followingUrl.toJson()},\"gists_url\":#{gistsUrl.toJson()},\"starred_url\":#{starredUrl.toJson()},\"subscriptions_url\":#{subscriptionsUrl.toJson()},\"organizations_url\":#{organizationsUrl.toJson()},\"repos_url\":#{reposUrl.toJson()},\"events_url\":#{eventsUrl.toJson()},\"received_events_url\":#{receivedEventsUrl.toJson()},\"type\":#{type.toJson()},\"site_admin\":#{siteAdmin.toJson()}}"
     }
 }

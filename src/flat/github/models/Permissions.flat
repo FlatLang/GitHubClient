@@ -23,7 +23,7 @@ class {
         visible Bool pull
     ) {}
 
-    override public toJson() -> String {
+    override public toJson(Bool: format = false, String: tab = "\t") -> String {
         return "{\"admin\":#{admin.toJson()},\"maintain\":#{maintain.toJson()},\"push\":#{push.toJson()},\"triage\":#{triage.toJson()},\"pull\":#{pull.toJson()}}"
     }
 }

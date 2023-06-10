@@ -33,7 +33,7 @@ class {
         visible String badgeUrl
     ) {}
 
-    override public toJson() -> String {
+    override public toJson(Bool: format = false, String: tab = "\t") -> String {
         return "{\"id\":#{id.toJson()},\"node_id\":#{nodeId.toJson()},\"name\":#{name.toJson()},\"path\":#{path.toJson()},\"state\":#{state.toJson()},\"created_at\":#{createdAt.toJson()},\"updated_at\":#{updatedAt.toJson()},\"url\":#{url.toJson()},\"html_url\":#{htmlUrl.toJson()},\"badge_url\":#{badgeUrl.toJson()}}"
     }
 }
