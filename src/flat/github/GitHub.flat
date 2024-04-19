@@ -43,9 +43,9 @@ class {
         if (!data || !data.class.isOfType(Array.class)) {
             throw Exception("|
                 Invalid data for request:
-                    url: #url
-                    method: #method
-                    data: #data
+                    url: #{url}
+                    method: #{method}
+                    data: #{data}
                 |")
         }
 
