@@ -3,6 +3,29 @@ package flat/github/models
 import flat/datastruct
 
 class {
+    static String URL_PREFIX = "https://api.github.com/repos/"
+
+    visible String ownerName {
+        get {
+            return ownerNameAndRepositoryName.split('/')[0]
+        }
+    }
+
+    visible String repositoryName {
+        get {
+            return ownerNameAndRepositoryName.split('/')[1]
+        }
+    }
+
+    visible String ownerNameAndRepositoryName {
+        get {
+            let rest = url.substring(URL_PREFIX.count)
+            let slash = rest.indexOf('/')
+            let endSlash = rest.indexOf('/', start: slash + 1)
+            return rest.substring(end: endSlash)
+        }
+    }
+
     public construct(
         HashMap<String, Object> map
     ) {
